@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Create Admin</title>
+<style>
+body{font:16px/1.4 system-ui,sans-serif;background:#F7F4E9;margin:0;padding:20px;color:#172033}
+.box{background:#fff;max-width:420px;margin:auto;border-radius:20px;padding:22px;display:grid;gap:10px;box-shadow:0 6px 24px #246cb41f}
+h1{font-size:20px;color:#174B7C;margin:0}
+label{font-size:13px;font-weight:700;color:#174B7C}
+input{width:100%;padding:12px;border:1.5px solid #D5E3F1;border-radius:12px;font-size:16px}
+button{padding:14px;border:0;border-radius:14px;background:#246CB4;color:#fff;font-size:16px;font-weight:700}
+#out{white-space:pre-wrap;font-size:14px;word-break:break-word}
+</style></head><body>
+<div class="box">
+<h1>Create your admin account</h1>
+<small>Do this once. After it works, you can delete this file.</small>
+<label>Setup key (the SETUP_KEY you saved)</label><input id="k" autocomplete="off">
+<label>Your name</label><input id="n" autocomplete="off">
+<label>Username (at least 3 letters)</label><input id="u" autocomplete="off">
+<label>Login password (at least 8 characters)</label><input id="p" type="password" autocomplete="off">
+<label>Operation PIN (4 to 6 digits)</label><input id="o" inputmode="numeric" autocomplete="off">
+<button onclick="go()">Create admin</button>
+<div id="out"></div>
+</div>
+<script>
+const URL='https://tiyovlpkeimwjyyzohar.supabase.co/functions/v1/api',KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRpeW92bHBrZWltd2p5eXpvaGFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM2MjEzNDEsImV4cCI6MjEwOTE5NzM0MX0.2aFBS-9gpftdTU5lzskmaLRQyK3gERHZzv4t_pBRzbs';
+const $=i=>document.getElementById(i);
+async function go(){
+ const out=document.getElementById('out');out.textContent='Working...';
+ const body={a:'setupAdmin',p:{key:$('k').value,name:$('n').value,user:$('u').value,pw:$('p').value,op:$('o').value}};
+ try{
+  const r=await fetch(URL,{method:'POST',headers:{'Content-Type':'application/json',apikey:KEY,Authorization:'Bearer '+KEY},body:JSON.stringify(body)});
+  const j=await r.json();
+  out.textContent=j.ok?'Admin created. Now open the app and log in with your username and password.':'Problem: '+(j.msg||JSON.stringify(j));
+ }catch(e){out.textContent='Could not reach the server: '+e.message}
+}
+</script></body></html>
