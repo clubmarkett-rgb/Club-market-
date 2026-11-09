@@ -1,21 +1,14 @@
 {
- "name": "Club Market",
- "short_name": "Club Market",
- "start_url": "/",
- "display": "standalone",
- "background_color": "#F7F4E9",
- "theme_color": "#246CB4",
- "icons": [
-  {
-   "src": "/icon-192.png",
-   "sizes": "192x192",
-   "type": "image/png"
-  },
-  {
-   "src": "/icon-512.png",
-   "sizes": "512x512",
-   "type": "image/png",
-   "purpose": "any maskable"
-  }
- ]
+  "name": "Club Market",
+  "short_name": "Club Market",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F4E9",
+  "theme_color": "#246CB4",
+  "description": "Virtual football club trading simulator for learning how share trading works.",
+  "icons": [
+    {"src": "/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
 }
