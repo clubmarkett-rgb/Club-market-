@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "app.vercel.clubmarket_two.twa",
+        "sha256_cert_fingerprints": ["33:88:A7:26:4C:4D:C9:02:FC:FB:2A:1E:76:E3:6B:2F:E4:CA:BC:34:48:4C:B9:33:AB:6B:98:95:26:75:8B:17"]
+      }
+    }]
